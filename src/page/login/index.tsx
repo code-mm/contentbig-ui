@@ -1,8 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {Layout, Input, Button, Form, Spin, Checkbox, Row, Col, Card} from 'antd';
 import {UserOutlined, LockOutlined, KeyOutlined} from '@ant-design/icons';
+
+import {gql} from '@apollo/client';
 import 'antd/dist/antd.css';
 import './index.less'
+import client from "../../graphql";
 
 
 const {Content} = Layout;
@@ -15,11 +18,28 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState<string>('');
 
     function login() {
+        setLoading(true)
+
+        client
+            .query({
+                query: gql`
+                  query GetRates {
+                    rates(currency: "USD") {
+                      currency
+                    }
+                  }
+    `
+            })
+            .then(result => {
+                    setLoading(false)
+                    console.log(result)
+                }
+            );
 
     }
 
     return <>
-        <div>
+        <div className="login-div">
             <Spin tip="加载中..." spinning={loading}>
                 <Card title="后台管理系统" bordered={true} style={{width: 400}}>
                     <Input
