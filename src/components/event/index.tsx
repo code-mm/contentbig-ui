@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {Bar} from '@ant-design/charts';
-import {Calendar, PageHeader, Input, DatePicker, Button, Tooltip, Spin, Checkbox, Row, Col} from 'antd';
+import {PageHeader, Input, DatePicker, Button, Tooltip, Spin, Checkbox, Row, Col} from 'antd';
 import {SearchOutlined} from '@ant-design/icons';
 
 
@@ -8,7 +8,7 @@ import zh_CN from 'antd/lib/locale-provider/zh_CN'
 import {ConfigProvider} from 'antd';
 
 import 'antd/dist/antd.css';
-import './Event.css';
+import './index.css';
 
 
 const Event: React.FC = () => {
@@ -105,9 +105,10 @@ const Event: React.FC = () => {
                     <Row gutter={1}>
                         <br/>
                         <br/>
-                        <Button style={{marginLeft:"100px" , width:"200px"}} type="primary" icon={<SearchOutlined/>} onClick={() => {
-                            setIsLoading(false)
-                        }}>
+                        <Button style={{marginLeft: "100px", width: "200px"}} type="primary" icon={<SearchOutlined/>}
+                                onClick={() => {
+                                    setIsLoading(false)
+                                }}>
                             查询
                         </Button>
                     </Row>

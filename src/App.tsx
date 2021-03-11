@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import Event from "./Event";
+
+import Main from './page/Main'
 function App() {
     return (
         <div className="App">
-            <Event/>
+            <Main/>
         </div>
     );
 }
